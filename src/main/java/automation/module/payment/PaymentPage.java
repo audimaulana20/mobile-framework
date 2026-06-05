@@ -1,6 +1,7 @@
 package automation.module.payment;
 
 import automation.base.BasePage;
+import automation.base.Verify;
 import io.appium.java_client.AppiumDriver;
 
 public class PaymentPage extends BasePage<PaymentLocator> implements PaymentSteps{
@@ -8,6 +9,7 @@ public class PaymentPage extends BasePage<PaymentLocator> implements PaymentStep
     int priceProduct;
     int shippingFee;
     int totalPrice;
+    int actualTotalPrice;
     public PaymentPage(AppiumDriver driver) {
         super(driver);
     }
@@ -40,13 +42,26 @@ public class PaymentPage extends BasePage<PaymentLocator> implements PaymentStep
             priceProduct = Integer.parseInt(price.replaceAll("[^0-9]", ""));
     }
 
+    @Override
     public void processToPayment() {
         element.waitVisible(mLocator.BUTTON_SHIPMENT);
         element.tap(mLocator.BUTTON_SHIPMENT);
+        element.waitVisible(mLocator.BUTTON_INSTANT);
+        String shipping = element.getText(mLocator.BUTTON_INSTANT);
+        shippingFee = Integer.parseInt(shipping.replaceAll("[^0-9]", ""));
+        element.tap(mLocator.BUTTON_INSTANT);
+        element.waitVisible(mLocator.BUTTON_CONFIRM_SHIPMENT);
+        element.tap(mLocator.BUTTON_CONFIRM_SHIPMENT);
+        element.waitVisible(mLocator.INFO_PRICE);
+        Verify.isTrue(element.isDisplayed(mLocator.BUTTON_INSTANT), "Successfully select instant shipment");
+        String actualTotal = element.getText(mLocator.INFO_PRICE);
+        actualTotalPrice = Integer.parseInt(actualTotal.replaceAll("[^0-9]", ""));
+        Verify.isTrue(calculateTotalPrice(), "Successfully calculate total price");
     }
 
-    private int calculateTotalPrice() {
-        return totalPrice = priceProduct + shippingFee;
+    private boolean calculateTotalPrice() {
+        totalPrice = priceProduct + shippingFee;
+        return totalPrice == actualTotalPrice;
     }
 
 }

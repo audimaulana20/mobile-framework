@@ -24,5 +24,6 @@ public class CheckOutPaymentJourneyTest extends BaseTest {
     public void journeyCheckOutPayment() {
         loginSteps.loginToApp("08123456789", "password123");
         paymentSteps.checkoutProduct();
+        paymentSteps.processToPayment();
     }
 }

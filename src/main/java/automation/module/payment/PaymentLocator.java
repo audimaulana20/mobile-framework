@@ -11,7 +11,8 @@ public class PaymentLocator extends BaseLocator {
     public final Locator BUTTON_CHECKOUT_PROCESS = id("(com.indomaret.klikindomaret:id/8k3");
     public final Locator INFO_PRICE = id("com.indomaret.klikindomaret:id/7hn");
     public final Locator BUTTON_SHIPMENT = id("com.indomaret.klikindomaret:id/bq6");
-    public final Locator BUTTON_INSTANT = xpath("//android.widget.TextView[@resource-id=\"com.indomaret.klikindomaret:id/ffp\" and contains(@text,\"Instan\"])");
+    public final Locator BUTTON_INSTANT = xpath("//android.widget.TextView[@resource-id=\"com.indomaret.klikindomaret:id/ffp\" and contains(@text,\"Instan\")]");
+    public final Locator BUTTON_BUY_PROCESS = id("com.indomaret.klikindomaret:id/frj");
     public final Locator BUTTON_CONFIRM_SHIPMENT = id("com.indomaret.klikindomaret:id/did");
     public Locator INFO_SEARCH_RESULT(String product) {
         return xpath("(//android.widget.EditText)[" + product + "]");
