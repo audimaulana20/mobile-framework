@@ -33,16 +33,6 @@ module
 * **Steps** → Feature contract
 * **Test** → Test scenario execution
 
-## Login Model Example
-
-```java
-public class LoginModel extends BaseModel {
-
-    public String username;
-    public String password;
-}
-```
-
 ## Locator Priority
 
 1. Resource ID
