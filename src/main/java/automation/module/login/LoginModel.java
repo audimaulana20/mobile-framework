@@ -4,6 +4,6 @@ import automation.base.BaseModel;
 
 public class LoginModel extends BaseModel {
 
-    String username;
-    String password;
+    public String username = "";
+    public String password = "";
 }
