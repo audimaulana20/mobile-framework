@@ -12,10 +12,4 @@ public class LoginLocator extends BaseLocator {
     public final Locator INPUT_PASSWORD = xpath("//android.widget.EditText[@text=\"Kata Sandi\"]");
     public final Locator BUTTON_LATER = id("com.indomaret.klikindomaret:id/9t1");
     public final Locator INFO_PHONE_NUMBER = xpath("//android.widget.TextView[@resource-id=\"com.indomaret.klikindomaret:id/e7q\"]");
-
-    public Locator inputOtp(int index) {
-        return xpath(
-                "(//android.widget.EditText)[" + index + "]"
-        );
-    }
 }
