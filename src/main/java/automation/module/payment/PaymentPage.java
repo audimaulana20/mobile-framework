@@ -43,7 +43,6 @@ public class PaymentPage extends BasePage<PaymentLocator> implements PaymentStep
     public void processToPayment() {
         element.waitVisible(mLocator.BUTTON_SHIPMENT);
         element.tap(mLocator.BUTTON_SHIPMENT);
-        shippingFee = fee;
     }
 
     private int calculateTotalPrice() {

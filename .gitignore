@@ -1,0 +1,38 @@
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# Reports
+surefire-reports/
+test-output/
+allure-results/
+allure-report/
+
+# Screenshots
+screenshots/
+
+# Appium
+appium.log
+
+# APK / XAPK
+apps/*.apk
+apps/*.xapk
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+
+# Environment
+.env
